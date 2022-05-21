@@ -3,15 +3,17 @@ Program to convert decimal number to Binary.
  */
  import java.util.*;
  public class DecimalToBinary{
-        public static String decimalToBinary(int decimal){
+        public static StringBuilder decimalToBinary(int decimal){
             // return Integer.toBinaryString(decimal);
+            
             int i=0;
-            String str="";
+            StringBuilder sb=new StringBuilder("");
             while(decimal>0){
-                str+=decimal%2;
+                int rem=decimal%2;
+                sb.insert(0,rem);
                 decimal/=2;
             }
-            return str;
+            return sb;
         }
 
         public static void main(String args[]){
