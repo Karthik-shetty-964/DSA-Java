@@ -4,7 +4,7 @@ Recursive program to print all the permutations of the string.
 i.e "abc" => abc,acb,bac,bca,cab,cba
 */
 import java.util.*;
-public class Pemutation{
+public class Permutation{
     public static void printPermutation(String str,String permutation){
         if(str.length()==0){
             System.out.println(permutation);
@@ -18,6 +18,6 @@ public class Pemutation{
     }
     public static void main(String args[]){
         Scanner sc=new Scanner(System.in);
-        printPermutation("abcd","");
+        printPermutation("abc","");
     }
 }
