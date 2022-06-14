@@ -1,9 +1,14 @@
 /*
-delete node in a linked list.
+ Get the size of the linked list
 */
 import java.util.*;
-public class DeleteNode{
+public class SizeOfList{
     Node head=null;
+    private int size;
+
+    SizeOfList(){
+        this.size=0;
+    }
     //Node definition
     class Node{
         String data;
@@ -12,6 +17,7 @@ public class DeleteNode{
         Node(String data){
             this.data = data;
             this.next=null;
+            size++;
         }
     }
 
@@ -30,12 +36,13 @@ public class DeleteNode{
         curNode.next=newNode;       
     }
 
-    //delete node from the List
+    //delete node from the begining
     public void deleteFirst(){
         if(head == null){
             System.out.println("List is empty");
             return;
         }
+        size--;
         head=head.next;
     }
 
@@ -45,6 +52,7 @@ public class DeleteNode{
             System.out.println("List is empty");
             return;
         }
+        size--;
         if(head.next==null){
             head=null;
             return;
@@ -58,6 +66,11 @@ public class DeleteNode{
         }
 
         secondLast.next=null;
+    }
+
+    //size of the linked List
+    public int getSize(){
+        return this.size;
     }
 
     //print list 
@@ -77,20 +90,25 @@ public class DeleteNode{
     public static void main(String args[]){
         Scanner sc=new Scanner(System.in);
 
-        DeleteNode list=new DeleteNode();
+        SizeOfList list=new SizeOfList();
         list.printList();
        
         list.add("10");
         list.add("20");
         list.add("30");
         list.printList();
+        System.out.println(list.getSize());
 
         list.deleteFirst();
         list.printList();
+        System.out.println(list.getSize());
 
         list.deleteLast();
         list.printList();
         
+        System.out.println(list.getSize());
+        list.add("40");
+        System.out.println(list.getSize());
 
     }
 }
